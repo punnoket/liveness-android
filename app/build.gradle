@@ -1,0 +1,155 @@
+apply plugin: 'com.android.application'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url 'https://maven.google.com/'
+        name 'Google'
+    }
+}
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+    defaultConfig {
+        applicationId "com.pandasoft.liveness"
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled false
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            multiDexEnabled true
+            minifyEnabled false
+/*
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+*/
+        }
+        debug {
+            multiDexEnabled false
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.2'
+    }
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.2'
+    }
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java', 'src-gen/main/java']
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+    useLibrary 'org.apache.http.legacy'
+    lintOptions {
+        disable 'InvalidPackage'
+        textReport true
+        textOutput 'stdout'
+        abortOnError false
+        checkAllWarnings false
+        checkReleaseBuilds false
+        ignoreWarnings true
+        quiet true
+    }
+}
+
+dependencies {
+    def lifecycle_version = "1.1.1"
+    def room_version = "1.1.1"
+    def daggerVer = 2.12
+
+    // or latest version
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support:support-v13:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+
+    //UI
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    implementation 'com.szagurskii:patternedtextwatcher:0.5.0'
+    implementation 'com.github.santalu:mask-edittext:1.0.9'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    // Rx
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.7'
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation "android.arch.persistence.room:rxjava2:$room_version"
+    implementation 'android.arch.paging:rxjava2:1.0.0-rc1'
+    implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+
+    //Network
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    debugImplementation 'com.readystatesoftware.chuck:library:1.1.0'
+    releaseImplementation 'com.readystatesoftware.chuck:library-no-op:1.1.0'
+
+    //Component
+    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+    implementation "android.arch.lifecycle:common-java8:$lifecycle_version"
+    implementation "android.arch.lifecycle:reactivestreams:$lifecycle_version"
+    implementation "android.arch.lifecycle:runtime:$lifecycle_version"
+    implementation 'com.google.firebase:firebase-crash:11.8.0'
+    annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"
+
+    //Dagger
+    implementation "com.google.dagger:dagger:$daggerVer"
+    implementation "com.google.dagger:dagger-android-support:$daggerVer"
+    annotationProcessor "com.google.dagger:dagger-compiler:2.15"
+    compileOnly 'javax.annotation:jsr250-api:1.0'
+
+    // Room
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    implementation "android.arch.persistence.room:rxjava2:$room_version"
+    implementation "android.arch.persistence.room:guava:$room_version"
+
+    // Testing
+    implementation 'com.android.support:support-v4:27.1.1'
+    testImplementation 'junit:junit:4.12'
+    testImplementation "android.arch.core:core-testing:$lifecycle_version"
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //Other
+    implementation files('libs/xmpcore-5.1.2.jar')
+    implementation project(':epid-android-release')
+    implementation 'com.android.support:multidex:1.0.1'
+
+    //noinspection UseOfBundledGooglePlayServices
+    implementation 'com.google.android.gms:play-services:11.8.0'
+    implementation 'org.jcodec:jcodec:0.2.2'
+    implementation 'org.jcodec:jcodec-android:0.2.2'
+    implementation 'com.google.guava:guava:23.0'
+    implementation 'com.rmtheis:tess-two:9.0.0'
+    implementation 'net.sf.scuba:scuba-sc-android:0.0.9'
+    implementation 'com.github.mhshams:jnbis:1.1.0'
+    implementation 'edu.ucar:jj2000:5.2'
+    implementation 'com.madgag.spongycastle:prov:1.54.0.0'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.56'
+    implementation 'me.aflak.libraries:ezcam:2.3.3'
+}
+
+apply plugin: 'com.google.gms.google-services'

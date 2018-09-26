@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: me.aflak.libraries:ezcam-2.3.3">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ezcam-2.3.3.aar/d430b568f354c946f54eb79e21f5104b/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ezcam-2.3.3.aar/d430b568f354c946f54eb79e21f5104b/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/me.aflak.libraries/ezcam/2.3.3/f45628cf9a631bcfb227f0f6762f0a342ded9028/ezcam-2.3.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

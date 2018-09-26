@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "889861538456",
+    "firebase_url": "https://ekyc-android.firebaseio.com",
+    "project_id": "ekyc-android",
+    "storage_bucket": "ekyc-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889861538456:android:3ea792e1034b4264",
+        "android_client_info": {
+          "package_name": "com.pandasoft.liveness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889861538456-rlcchrd16alp19mbai0c8tkmhak7mskp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pandasoft.liveness",
+            "certificate_hash": "b5b8247e0d8d91a664a1bc97134b7764fcca9fbf"
+          }
+        },
+        {
+          "client_id": "889861538456-a20fj0onnp21579bs3qfi4ed1hv89rck.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx8Gt0oDj1UUXe6KiFU1I9fine6tj__b4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889861538456-a20fj0onnp21579bs3qfi4ed1hv89rck.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
